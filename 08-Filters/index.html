@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+  <meta charset="UTF-8">
+  <title>08</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        
+        <div ng-controller="mainController">
+          {{123.4567889 | number:2}} <br>
+          {{1234567889 | number}} <br>
+          {{123 | currency}} <br>
+          {{date | date:'fullDate'}} <br>
+
+          {{['Vincent', 'Inde', 'Boule', 'Jeanne', 'Lapin'] | filter:'in'}} <br>
+          {{['Vincent', 'Inde', 'Boule', 'Jeanne', 'Lapin'] | filter:'!in'}} <br>
+
+          {{
+              [
+                {
+                  nom:'Nabet',
+                  prenom:'Vincent'
+                },
+                {
+                  nom:'Nabet',
+                  prenom:'Peggy',
+                  nomjf:'Brayet'
+                },
+                {
+                  nom:'Bobby',
+                  prenom:'Jeanne',
+                  nomjf:'Nabet'
+                }
+              ] | filter:{'nomjf':'nabet'}:true
+          }} <br><!--seconde param du filter true/false => case Sensitive -->
+
+          {{
+              [
+                {
+                  nom:'Nabet',
+                  prenom:'Vincent'
+                },
+                {
+                  nom:'Nabet',
+                  prenom:'Peggy',
+                  nomjf:'Brayet'
+                },
+                {
+                  nom:'Bobby',
+                  prenom:'Jeanne',
+                  nomjf:'Nabet'
+                }
+              ] | filter:{$:'nabet'}
+          }} <br>
+
+          {{['Vincent', 'aime', 'les','Jeux', 'de', 'Societé'] | filter:isCapitilized}} <br>
+
+          {{ { 'prenom': 'Vincent', 'nom': 'Vincent'} | json}} <br>
+
+          {{ 'Vincent le roi de la route' | limitTo:5}} <br>
+          {{ 'Vincent le roi de la route' | limitTo:-5}} <br>
+          {{ [1,2,3,4,5] | limitTo:2}} <br>
+
+          {{ [{ 'prenom': 'Vincent', 'nom': 'Nabet'},
+              { 'prenom': 'Peggy', 'nom': 'Brayet'},
+              { 'prenom': 'Simon', 'nom': 'Templar'}] | orderBy:'-nom'}} <br>
+
+          {{ [{ 'prenom': 'Vincent', 'nom': 'Nabet'},
+              { 'prenom': 'Peggy', 'nom': 'Brayet'},
+              { 'prenom': 'Simon', 'nom': 'Templar'}] | orderBy:'nom':true}} <br>
+
+          {{ [{ 'prenom': 'Vincent', 'nom': 'Nabet'},
+              { 'prenom': 'Jeanne', 'nom': 'Nabet'},
+              { 'prenom': 'Peggy', 'nom': 'Brayet'},
+              { 'prenom': 'Simon', 'nom': 'Templar'}] | orderBy: ['nom', '-prenom']}} <br>
+
+
+          {{'vInCenT EST là Dans lA PLAce' | lowercase | capitalize}}
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <a href="../index.html" class="btn btn-info"><span class="glyphicon glyphicon-hand-left"></span> Return to Index</a>
+      </div>
+
+    </div>
+  </div>
+  
+  <script src="../lib/angular/angular.js"></script>
+  <script src="../lib/angular-i18n/angular-locale_fr-fr.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

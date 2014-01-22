@@ -16,7 +16,8 @@
     "tests"
   ],
   "dependencies": {
-    "angular": ">=1.2.7",
-    "bootstrap": "~3.0.3"
+    "angular": "",
+    "bootstrap": "~3.0.3",
+    "angular-i18n": ""
   }
 }

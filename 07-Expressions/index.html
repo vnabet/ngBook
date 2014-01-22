@@ -1,18 +1,30 @@
 <!DOCTYPE html>
-<html ng-app>
+<html ng-app="myApp">
 <head>
   <meta charset="UTF-8">
-  <title>01</title>
+  <title>07</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
-
 </head>
 <body>
-  <div class="container" ng-controller="MyController">
+  <div class="container">
     <div class="row">
       <div class="col-sm-12">
-        <input type="text" ng-model="person.name" placeholder="Your name">
-        <h1>Hello {{person.name}} - {{clock.now}}</h1>
+        <h3>$parse</h3>
+        <div ng-controller="parseController">
+          <input type="text" ng-model="expr" placeholder="Expression">
+        <pre>Value: __parsedValue__</pre>
+        </div>
+        <h3>$interpolate</h3>
+        <div ng-controller="interpolateController">
+          <input type="email" ng-model="to" placeholder="Recipient">
+          <textarea cols="70" rows="10" ng-model="emailBody"></textarea>
+          <pre>__previewText__</pre>
+
+          
+          
+        </div>
+        
       </div>
 
     </div>
@@ -24,6 +36,7 @@
 
     </div>
   </div>
+  
   <script src="../lib/angular/angular.js"></script>
   <script src="app.js"></script>
 </body>

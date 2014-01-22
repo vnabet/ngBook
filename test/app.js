@@ -21,7 +21,7 @@ app.controller('MyController',
     }
 
     setInterval(function() { 
-        console.log(er.titi);
+        //console.log(er.titi);
       $scope.$apply(updateClock);
       //updateClock();
       //$scope.$apply(console.log(er.tt));

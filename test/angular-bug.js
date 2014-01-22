@@ -15,8 +15,8 @@ angularbug.config(['$provide', function($provide) {
  * 
  */
 angularbug.run(['bugDisplay', function(bugDisplay) {
-  window.addEventListener('error', function(error) {
-    bugDisplay.error(error);
+  window.addEventListener('error', function(errorEvent) {
+    bugDisplay.error(errorEvent.error);
 
   });
 }]);

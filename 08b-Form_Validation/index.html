@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+  <meta charset="UTF-8">
+  <title>08b</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+  <!--style>
+    input.ng-invalid {
+      border-color: red;
+    }
+  </style-->
+</head>
+<body>
+  <div class="container" ng-controller="mainController">
+    <div class="row">
+      <div class="col-sm-12">
+        <form name="form" novalidate ng-submit="submitForm()">
+          <div class="form-group" ng-class="{'has-error': form.email.$invalid && form.email.$dirty, 'has-success': form.email.$valid && form.email.$dirty}">
+            <label for="email" class="control-label">Your email</label>
+            <input type="email" name="email" ng-model="user.email" placeholder="Email Adress" class="form-control">
+          </div>
+          <div class="form-group" ng-class="{'has-error': form.confemail.$invalid && form.confemail.$dirty, 'has-success': form.confemail.$valid && form.confemail.$dirty}">
+            <label for="confemail" class="control-label">Confirm your email</label>
+            <input type="email" name="confemail" ng-model="user.confemail" placeholder="Email Adress" class="form-control" en-confirm="user.email"required>
+          </div>
+          <div class="form-group">
+            <label for="name" class="control-label">Nom</label>
+            <input type="text" name="name" class="form-control" ng-minlength="5" ng-model="user.name" en-maj>
+          </div>
+          <div class="form-group">
+            <label for="firstname" class="control-label">Prénom</label>
+            <input type="text" name="firstname" class="form-control" ng-pattern="/^[a-zA-Z]+$/" ng-model="user.firstname">
+          </div>
+          <div class="form-group">
+            <label for="age" class="control-label">Age</label>
+            <input type="number" name="age" class="form-control" min="18" max="150" ng-model="user.age" required>
+          </div>
+          <div class="form-group">
+            <label for="url" class="control-label">URL</label>
+            <input type="url" name="url" class="form-control" ng-model="user.url">
+          </div>
+          <button type="submit" class="btn btn-default pull-right" ng-disabled="form.$invalid">Envoyer</button>
+        </form>
+        <p></p>
+      </div>
+      {{form.confemail.$error}} <br>
+      {{form.age.$error}} <br>
+      {{user.name}} <br>
+      <button ng-click="essai()">Essai</button>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <a href="../index.html" class="btn btn-info"><span class="glyphicon glyphicon-hand-left"></span> Return to Index</a>
+      </div>
+
+    </div>
+  </div>
+  
+  <script src="../lib/angular/angular.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
