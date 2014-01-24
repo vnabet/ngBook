@@ -43,7 +43,7 @@ myApp.directive('enConfirm', function() {
     restrict:'A',
     require:'?ngModel',
     scope: {
-      'enConfirm' : '='
+      'enConfirm' : '@'
     },
     link: function(scope, el, attrs, ngModel ) {
       if(!ngModel) return;
